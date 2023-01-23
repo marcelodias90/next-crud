@@ -5,6 +5,11 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: false,
+  safelist: [
+    { pattern: /from-(green|blue|gray)-(400|500|700)/, },
+    { pattern: /to-(green|blue|gray)-(400|500|700)/, },
+    { pattern: /text-(red|green)-(500|600|800)/,}
+  ],
   theme: {
     extend: {},
   },

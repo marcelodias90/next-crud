@@ -4,6 +4,8 @@ import { IconeEdicao, IconeLixo } from "./Icones"
 
 interface TabelaProps {
     clientes: Cliente[]
+    clienteSelecionado?: (cliente: Cliente) => void
+    clienteExcluido?: (cliente: Cliente) => void
 }
 
 export default function Tabela(props: TabelaProps) {
@@ -35,10 +37,10 @@ export default function Tabela(props: TabelaProps) {
     function renderizarAcoes(cliente: Cliente){
         return (
             <td className="flex justify-center">
-                <BotaoAcoes cor="text-green-600" >
+                <BotaoAcoes cor="green" onClick={() => props.clienteSelecionado?.(cliente)}>
                         {IconeEdicao}
                 </BotaoAcoes>
-                <BotaoAcoes cor="text-red-500">
+                <BotaoAcoes cor="red" onClick={() => props.clienteExcluido?.(cliente)}>
                     {IconeLixo}
                 </BotaoAcoes>
             </td>
